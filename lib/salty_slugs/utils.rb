@@ -18,7 +18,7 @@ module Norbauer
         str = str.gsub(/\W+/, '-').gsub(/^-+/,'').gsub(/-+$/,'').downcase
         return str
       else
-        str = Iconv.iconv('ascii//translit', 'utf-8', text).to_s
+        str = Iconv.iconv('ascii//translit//ignore', 'utf-8', text).to_s
         str.gsub!(/\W+/, ' ')
         str.strip!
         str.downcase!
