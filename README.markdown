@@ -4,6 +4,13 @@
  
 ## Installation
 
+* Using Rails 3
+
+<pre>
+rails plugin install git://github.com/norbauer/salty_slugs.git
+</pre>
+
+
 * Using Rails 2.1+
 
 <pre>
