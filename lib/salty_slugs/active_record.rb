@@ -1,5 +1,6 @@
-module Norbauer
-  module SaltySlugs
+# encoding: utf-8
+module SaltySlugs
+  module ActiveRecord
     def self.included(base)
       base.extend SlugMethods
     end

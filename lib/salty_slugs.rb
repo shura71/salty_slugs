@@ -1,4 +1,8 @@
-require 'salty_slugs/utils'
-require 'salty_slugs/active_record'
+# encoding: utf-8
+module SaltySlugs
+  autoload :Transliteration, 'salty_slugs/transliteration'
+  autoload :Utils,           'salty_slugs/utils'
+  autoload :ActiveRecord,    'salty_slugs/active_record'
+end
 
-ActiveRecord::Base.send(:include, Norbauer::SaltySlugs)
+require 'salty_slugs/railtie' if defined?(Rails)

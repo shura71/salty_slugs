@@ -1,16 +1,17 @@
+# encoding: utf-8
 begin
   require "unicode"
 rescue LoadError
   require "iconv"
 end
 
-module Norbauer
+module SaltySlugs
   module Utils
     def self.sluggify(text)
       return nil if text.blank?
       
-      if defined?(Russian)
-      	str = text.parameterize
+      if defined?(Transliteration)
+      	str = Transliteration.transliterate(text)
       	str = str.gsub(/\W+/, '-').gsub(/^-+/,'').gsub(/-+$/,'').downcase
         return str
       elsif defined?(Unicode)
