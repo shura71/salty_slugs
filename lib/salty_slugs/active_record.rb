@@ -45,7 +45,7 @@ module SaltySlugs
           slug_scope_fields ? (validates_uniqueness_of slug_column, :scope => slug_scope_fields) : (validates_uniqueness_of slug_column)
         end
 
-        before_validation { |record| record[slug_column] = (sync_slug || record[slug_column].blank?) ? Norbauer::Utils.sluggify(record.send(slug_source_column)) : Norbauer::Utils.sluggify(record[slug_column]) }
+        before_validation { |record| record[slug_column] = (sync_slug || record[slug_column].blank?) ? SaltySlugs::Utils.sluggify(record.send(slug_source_column)) : SaltySlugs::Utils.sluggify(record[slug_column]) }
       end
 
       module ClassMethods
