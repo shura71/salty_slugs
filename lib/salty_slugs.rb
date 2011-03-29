@@ -5,4 +5,4 @@ module SaltySlugs
   autoload :ActiveRecord,    'salty_slugs/active_record'
 end
 
-require 'salty_slugs/railtie' if defined?(Rails)
+require 'salty_slugs/railtie'
