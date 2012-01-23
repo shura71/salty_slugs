@@ -38,8 +38,8 @@ module SaltySlugs
           options[:scope] = "#{options[:scope]}_id".intern
         end
         
-        write_inheritable_attribute :salty_slugs_options, options
-        class_inheritable_reader :salty_slugs_options
+        class_attribute :salty_slugs_options
+        self.salty_slugs_options = options
 
         unless slug_prepend_id
           slug_scope_fields ? (validates_uniqueness_of slug_column, :scope => slug_scope_fields) : (validates_uniqueness_of slug_column)
@@ -62,23 +62,23 @@ module SaltySlugs
 
       module Columns
         def slug_column
-          salty_slugs_options[:slug_column]
+          self.salty_slugs_options[:slug_column]
         end
         
         def slug_source_column
-          salty_slugs_options[:source_column]
+          self.salty_slugs_options[:source_column]
         end
         
         def slug_prepend_id
-          salty_slugs_options[:prepend_id]
+          self.salty_slugs_options[:prepend_id]
         end
         
         def sync_slug
-          salty_slugs_options[:sync_slug]
+          self.salty_slugs_options[:sync_slug]
         end
         
         def slug_scope_fields
-          salty_slugs_options[:scope]
+          self.salty_slugs_options[:scope]
         end
       end
       
