@@ -25,7 +25,7 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
-    s.name = "galetahub-salty_slugs"
+    s.name = "salty_slugs"
     s.version = SaltySlugs::VERSION
     s.summary = "Generated slugs"
     s.description = "Abstraction of word-based slugs for URLs, w/ or w/o leading numeric IDs."
