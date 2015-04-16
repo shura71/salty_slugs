@@ -53,8 +53,8 @@ module SaltySlugs
           if slug_prepend_id && value.to_i != 0
             find(value.to_i, options)
           else
-            with_scope(:find => { :conditions => { slug_column => value } }) do
-              find(:first, options)
+            where(slug_column => value).scoping do
+              first
             end or raise ::ActiveRecord::RecordNotFound
           end
         end
