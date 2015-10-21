@@ -51,7 +51,11 @@ module SaltySlugs
       module ClassMethods
         def slugged_find(value, options = {})
           if slug_prepend_id && value.to_i != 0
-            find(value.to_i, options)
+            if Rails::VERSION::MAJOR > 3 
+              find(value.to_i)
+            else
+              find(value.to_i, options)
+            end
           else
             where(slug_column => value).scoping do
               first
